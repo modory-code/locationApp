@@ -21,8 +21,10 @@ module.exports = (_server) => {
         // 메시지를 받은 경우 호출되는 이벤트 메소드
         socket.on('location', (data) => {
             
+            console.time();
             // 받은 메시지 서버 출력
             console.log('클라이언트 메시지:', data);
+            console.timeEnd();
 
             // 받은 메시지 클라이언트에게 전송 (통신 여부 체크2)
             socket.emit('location', data);
