@@ -20,7 +20,9 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-const webSocket = require("../routes/webSocket");
+// const webSocket = require("../routes/webSocket");
+// var io = require('socket.io')(server);
+const io = require('../routes/socketIo');
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -29,7 +31,8 @@ const webSocket = require("../routes/webSocket");
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-webSocket( server );
+// webSocket( server );
+io(server);
 
 /**
  * Normalize a port into a number, string, or false.
